@@ -16,8 +16,8 @@ run_buildscripts_for() {
 	# Complex "find" expression here since there might not be any overrides
 	# Allows us to numerically sort scripts by stuff like "01-packages.sh" or whatever
 	# CUSTOM_NAME is required if we dont need or want the automatic name
-	find "${BUILD_SCRIPTS_PATH}/$WHAT" -maxdepth 1 -iname "*-*.sh" -type f -print0 | sort --zero-terminated --sort=human-numeric | while IFS= read -r -d $'\0' script ; do
-		if [ "${CUSTOM_NAME}" != "" ] ; then
+	find "${BUILD_SCRIPTS_PATH}/$WHAT" -maxdepth 1 -iname "*-*.sh" -type f -print0 | sort --zero-terminated --sort=human-numeric | while IFS= read -r -d $'\0' script; do
+		if [ "${CUSTOM_NAME}" != "" ]; then
 			WHAT=$CUSTOM_NAME
 		fi
 		printf "::group:: ===$WHAT-%s===\n" "$(basename "$script")"
@@ -30,7 +30,7 @@ copy_systemfiles_for() {
 	WHAT=$1
 	shift
 	DISPLAY_NAME=$WHAT
-	if [ "${CUSTOM_NAME}" != "" ] ; then
+	if [ "${CUSTOM_NAME}" != "" ]; then
 		DISPLAY_NAME=$CUSTOM_NAME
 	fi
 	printf "::group:: ===%s-file-copying===\n" "${DISPLAY_NAME}"
@@ -39,6 +39,6 @@ copy_systemfiles_for() {
 }
 
 CUSTOM_NAME="base"
-copy_systemfiles_for files
+copy_systemfiles_for ../system_files
 run_buildscripts_for .
 CUSTOM_NAME=
