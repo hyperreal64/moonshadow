@@ -4,6 +4,9 @@ COPY system_files /files
 
 FROM ghcr.io/ublue-os/bazzite-nvidia:stable
 
+ARG IMAGE_NAME="moonshadow"
+ARG IMAGE_VENDOR="hyperreal64"
+
 RUN --mount=type=tmpfs,dst=/tmp \
     --mount=type=bind,from=ctx,source=/,target=/run/context \
     mkdir -p /var/roothome && \
