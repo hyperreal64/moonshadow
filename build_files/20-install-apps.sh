@@ -91,7 +91,7 @@ dnf5 install --enable-repo="copr:copr.fedorainfracloud.org:ublue-os:packages" -y
 # If adding any dependency, make sure to always have it disabled by default and _only_ enable it on `dnf install`
 
 # VSCodium (from Terra)
-dnf5 install -y \
+dnf5 install --enable-repo="terra" -y \
     codium \
     codium-bash-completion \
     codium-marketplace
