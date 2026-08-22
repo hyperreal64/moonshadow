@@ -10,8 +10,7 @@ dnf5 install -y \
 	atop \
 	nfs-utils \
 	prometheus-node-exporter \
-	rpcbind \
-	yakuake
+	rpcbind
 
 # systemd services
 systemctl enable atop.service
